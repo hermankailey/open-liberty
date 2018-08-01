@@ -527,8 +527,8 @@ public class InstallKernelMap implements Map {
             }
 
             resolver = new RepositoryResolver(productDefinitions, installedFeatures, Collections.<IFixInfo> emptySet(), repoList);
-            resolveResult = resolver.resolve((Collection<String>) data.get(FEATURES_TO_RESOLVE));
-
+            //resolveResult = resolver.resolve((Collection<String>) data.get(FEATURES_TO_RESOLVE));
+            resolveResult = resolver.resolveAsSet((Collection<String>) data.get(FEATURES_TO_RESOLVE));
             Boolean accepted = (Boolean) data.get(LICENSE_ACCEPT);
             if (accepted == null || !accepted) {
                 throw new InstallException(Messages.INSTALL_KERNEL_MESSAGES.getLogMessage("ERROR_LICENSES_NOT_ACCEPTED"));
