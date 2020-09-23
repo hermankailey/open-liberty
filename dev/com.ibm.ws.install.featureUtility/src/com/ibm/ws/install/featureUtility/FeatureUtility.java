@@ -161,6 +161,17 @@ public class FeatureUtility {
         fine("Initialized install kernel map");
     }
 
+    public FeatureUtility() {
+    	this.esaFiles = null;
+        this.noCache = null;
+        this.licenseAccepted = null;
+        this.additionalJsons = null;
+        this.jsons = null;
+        this.logger = InstallLogUtils.getInstallLogger();
+        this.featuresToInstall = null;
+        this.progressBar = ProgressBar.getInstance();
+        map = new InstallKernelMap();
+    }
     /**
      * Initialize the Install kernel map.
      *
@@ -787,6 +798,32 @@ public class FeatureUtility {
 	    }
 		instream.close();
 	    outstream.close();
+	}
+	
+	public void generatePermanentJson(String targetJsonFile, List<File> esaFiles) throws IOException, RepositoryException, InstallException {
+		//modify to generate permanent json
+		updateProgress(progressBar.getMethodIncrement("generatingJson"));
+		info("generating json...");
+		Path targetDir = Files.createTempDirectory("generatedJson");
+		Map<String, String> shortNameMap = new HashMap<String, String>();
+		fine("targetDir: " + targetDir.toString());
+		map.put("individual.esas", esaFiles);
+		map.generateJson(targetDir, shortNameMap);
+		fine("targetDir: " + targetDir.toString());
+		File tempFile = new File(targetDir.toString() + "/SingleJson.json");
+		fine("targetJsonFile: " + targetJsonFile.toString());
+		File targetFile = new File(targetJsonFile);
+		FileInputStream instream = new FileInputStream(tempFile);
+		FileOutputStream outstream = new FileOutputStream(targetFile);
+		byte[] buffer = new byte[1024];
+		int length;
+		while ((length = instream.read(buffer)) > 0){
+	    	outstream.write(buffer, 0, length);
+	    }
+		instream.close();
+	    outstream.close();
+	    updateProgress(progressBar.getMethodIncrement("generatedJson"));
+	    info("Json has been generated at : " +  targetJsonFile);
 	}
     
 

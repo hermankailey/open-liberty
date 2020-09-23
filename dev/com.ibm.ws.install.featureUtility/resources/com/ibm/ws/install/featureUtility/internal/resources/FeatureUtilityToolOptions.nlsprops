@@ -107,6 +107,26 @@ installServerFeatures.option-key.--noCache=\
 installServerFeatures.option-desc.--noCache=\
 \tFeatures installed from a remote repository                          \n\
 \t(for example, Maven Central) are not cached locally.
+#--------- MAKEJSON ACTION --------------------------------------#
+makeJson.desc=\
+\tGenerate a Json for an ESA file or a collection of ESA files.        \n\
+\tThe --outputLocation option is mandatory for Json file generation.
+#------------------------------\n at 72 chars -- leading tab-----------\n\#
+makeJson.option-key.name...=\
+\ \ \ \ name ...
+makeJson.option-desc.name...=\
+\tThe file path to the ESA file, or list of ESA file paths, or a       \n\
+\tdirectory containing ESA files for which the Json will be generated.
+#------------------------------\n at 72 chars -- leading tab-----------\n\#
+makeJson.option-key.--outputLocation=\
+\ \ \ \ --outputLocation=filePath
+makeJson.option-desc.--outputLocation=\
+\tUse this option to specify the file path of the resulting Json.      
+#------------------------------\n at 72 chars -- leading tab-----------\n\#
+makeJson.option-key.--verbose=\
+\ \ \ \ --verbose
+makeJson.option-desc.--verbose=\
+\tDisplay additional debug information while the action runs.
 #--------- FIND ACTION ------------------------------------------------#
 find.desc=\
 \tFind features from the repositories.

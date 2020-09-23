@@ -34,7 +34,8 @@ public enum FeatureAction implements ActionDefinition {
     installServerFeatures(new InstallServerAction(), "isf",-1, "--noCache", "--verbose","--acceptLicense", "name..."),
     viewSettings(new ViewSettingsAction(),"", 0, "--viewValidationMessages"),
     find(new FindAction(), "", -1, "[searchString]"),
-    help(new FeatureHelpAction(),"", 0);
+    help(new FeatureHelpAction(),"", 0),
+	makeJson(new MakeJsonAction(), "mj", -1, "--verbose", "--outputLocation", "name...");
 
     private List<String> commandOptions;
     private ActionHandler action;

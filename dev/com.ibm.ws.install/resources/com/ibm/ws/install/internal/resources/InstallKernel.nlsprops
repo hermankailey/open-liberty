@@ -886,4 +886,12 @@ MAPBASED_ERROR_UNSUPPORTED_FILE=CWWKF1502E: The {0} file cannot be installed bec
 MAPBASED_ERROR_UNSUPPORTED_FILE.explanation=The file was not installed because an unsupported type of file was provided.
 MAPBASED_ERROR_UNSUPPORTED_FILE.useraction=See the problem determination information on the WebSphere Application Server Support web page: http://www.ibm.com/software/webservers/appserv/was/support.
 
+INVALID_ESA_INPUT_DIRECTORY=CWWKF1503E: {0} is not a valid Directory for generating a features Json.
+INVALID_ESA_INPUT_DIRECTORY.explanation=The directory specified did not contain ESA files or did not exist.
+INVALID_ESA_INPUT_DIRECTORY.useraction=Ensure that the directory specified has valid viewing permissions and contains the ESA files required for creating the features Json.
+
+INVALID_ESA_INPUT_FILE=CWWKF1504E: {0} is not a valid File for generating a features Json.
+INVALID_ESA_INPUT_DIRECTORY.explanation=The File specified either did not exist or was an invalid ESA file.
+INVALID_ESA_INPUT_DIRECTORY.useraction=Ensure that the File specified has valid viewing permissions and ends with the extension .esa.
+
 MSG_STABILIZING_FEATUREMANAGER=This featureManager action is stabilized. Use installUtility {0} instead. The installUtility command is recommended for installation and repository-related actions.
